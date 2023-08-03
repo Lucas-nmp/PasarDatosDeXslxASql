@@ -1,7 +1,6 @@
 import funciones
 
 # hay que crear las funciones en el archivo funciones para crear la base de datos
-# crear versiones para windows y linux de la creacion del arhivo xslc con diferentes tutas / o \ 
 # informar del tiempo mas o menos que tardaría en pasar los datos a la bd
 
 """ Menú desde el que vamos a llamar a las diferentes funciones almacenadas en el archivo funciones.py para ir realizando 

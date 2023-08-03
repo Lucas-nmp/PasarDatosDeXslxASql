@@ -2,7 +2,7 @@ import pandas as pd, constantes, random, mysql.connector
 from datetime import datetime, timedelta
 
 
-""" Este es el programa principal en el que vamos a leer los datos del archivo xslx y lo vamos a pasar 
+""" Este es la función principal en la que vamos a leer los datos de un archivo xslx y lo vamos a pasar 
 a una base de datos mysql, la base de datos y la tabla tiene que estar creada en el sistema y coincidir
 los nombres de las columnas con los nombres de los campos de la tabla, en caso contrario dará error. 
 Todos los datos a insertar van entre comillas, varchar y date para insertar int habría que modificar el programa
@@ -36,7 +36,7 @@ def copiarDatosAMysql(pas):
 """ La idea principal es leer un archivo excel con datos de clientes y pasarlos a una base de datos mysql.
     
     Aquí, como no tengo un archivo excel con datos, lo que vamos a hacer es crearlo y llenarlo con datos 
-    inventados de forma aleatoria  """
+    inventados de forma aleatoria """
 def crearXslx(cantidad):
     try:
         # Vamos a crear un diccionario con los datos que vamos a escribir en el archivo excel
@@ -65,10 +65,10 @@ def crearXslx(cantidad):
 # Retorna una lista con tantos elementos aleatorios de la lista recibida como se indique en el número 
 
 def obtenerLista(lista, cantidad):
-    listaResultado = []  # creamos la lista vacía para almacenar el resultado
+    listaResultado = []  
     for i in range (cantidad):
-        listaResultado.append(random.choice(lista)) # vamos almacenando en la lista valores aleatorios de la
-        # lista recibida, tantos como indique el parametro cantidad
+        listaResultado.append(random.choice(lista)) 
+        # vamos almacenando en la lista valores aleatorios de la lista recibida, tantos como indique el parametro cantidad
     
     return listaResultado
 
@@ -76,10 +76,10 @@ def obtenerLista(lista, cantidad):
 # función que genera una lista de números aleatorios entre dos números
 
 def generadorTelefonos(cantidad):
-    listaResultado = []  # creamos la lista vacía para almacenar el resultado
+    listaResultado = []  
     for i in range(cantidad):
-        listaResultado.append(random.randint(600000000, 699999999)) # generamos tantos números aleatorios para 
-        # almacenarlos en la lista de resultado, como nos han indicado en en la llamada a la fincion
+        listaResultado.append(random.randint(600000000, 699999999)) 
+        # generamos tantos números aleatorios para almacenarlos en la lista de resultado, como nos han indicado en en la llamada a la fincion
     
     return listaResultado
 
