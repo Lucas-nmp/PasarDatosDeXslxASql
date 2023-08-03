@@ -99,3 +99,16 @@ def fechasNacimiento(cantidad):
     return listaResultado
 
 
+
+# Función que evita un error si no se introduce un número entero 
+
+def comprobarInt():
+    correcto=False
+    while(not correcto):
+        try:
+            cantidad = int(input('Escriba la cantidad de filas que quiere insertar en el archivo .xslx:  '))
+            correcto=True
+        except ValueError:
+            print('Error, introduce un numero entero.')
+    
+    return cantidad

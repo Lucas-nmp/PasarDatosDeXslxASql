@@ -1,12 +1,12 @@
 import funciones
 
-# hay que crear una excepcion en caso de pulsar otra cosa que no sean las opciones dadas
-# hay que crear las funciones en el archivo funciones para crear la base de datos, crear el .xslx y pasar los datos
-# subir lo que llevamos a git
-# tal vez crear versiones para windows y linux de la creacion del arhivo xslc con diferentes tutas / o \ 
-# en la funcion de crear la base de datos solicitar la contraseña del usuario root
-# en la de crear el archivo xslx pedir la cantidad de datos a generar y luego informar del tiempo 
-# mas o menos que tardaria en pasar esos datos a la bd
+# hay que crear las funciones en el archivo funciones para crear la base de datos
+# crear versiones para windows y linux de la creacion del arhivo xslc con diferentes tutas / o \ 
+# informar del tiempo mas o menos que tardaría en pasar los datos a la bd
+
+""" Menú desde el que vamos a llamar a las diferentes funciones almacenadas en el archivo funciones.py para ir realizando 
+    las acciones que necesitemos. 
+    Si creamos el archivo .xslx dos veces sin cambiar la ruta el último borrará al generado anteriormente"""
 
 def mostrar_menu():
     print("------ Menú ------")
@@ -24,16 +24,7 @@ def main():
             print("Hasta luego. ¡Vuelve pronto!")
             break
         elif seleccion == "1":
-            correcto=False
-            while(not correcto):
-                try:
-                    cantidad = int(input('Escriba la cantidad de filas que quiere insertar en el archivo .xslx:  '))
-                    correcto=True
-                except ValueError:
-                    print('Error, introduce un numero entero.')
-            # si el número ha sido introducido correctamente llamamos a la función para crear el archivo .xslx y le pasamos por 
-            # parámetro la cantidad de filas que queramos que tenga.
-            funciones.crearXslx(cantidad)
+            funciones.crearXslx(funciones.comprobarInt())
 
         elif seleccion == "2":
             print('\n opción por implementar \n ')
