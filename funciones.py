@@ -8,7 +8,9 @@ los nombres de las columnas con los nombres de los campos de la tabla, en caso c
 Todos los datos a insertar van entre comillas, varchar y date para insertar int habría que modificar el programa
 y el formato de fecha está en el archivo .xslx en el mismo formato que necesita mysql. """
 
-# Para insertar 6 columnas con 15000 filas tarda exactamente 1 minuto y 33 segundos 
+# Para insertar 6 columnas con 15.000 filas tarda 1 minuto y 33 segundos en un portatil poco potente con Linux, 
+# en una torre gama alta con Windows 21 segundos
+
 def copiarDatosAMysql(pas):
     # convertimos la contrasesña recibida a string para no tener problemas 
     pasStr = str(pas)
@@ -61,7 +63,7 @@ def crearXslx(cantidad):
     except ValueError:
         print('Ha ocurrido un error y el archivo no ha sido creado')
 
-# función que recibe dos parametros, una lista de elementos de cualquier tipo y un número
+# Función que recibe dos parametros, una lista de elementos de cualquier tipo y un número
 # Retorna una lista con tantos elementos aleatorios de la lista recibida como se indique en el número 
 
 def obtenerLista(lista, cantidad):
@@ -72,14 +74,27 @@ def obtenerLista(lista, cantidad):
     
     return listaResultado
 
+""" Función para crear la base de datos y la tabla necesaria para guardar los datos 
+    Para crear la tabla hay que mirar bien el archivo excel porque los campos de la tabla tienen que llamarse igual 
+    que el campo principal que cada fila del excel y los tipos de datos tienen que ser compatibles para que el insert no nos de problemas"""
 
-# función que genera una lista de números aleatorios entre dos números
+def crearBdyTabla(pas):
+    pasStr = str(pas)
+    conexion = mysql.connector.connect(host="localhost", user="root", passwd=pasStr)
+    cursor1 = conexion.cursor()
+    cursor1.execute("create database if not exists usuarios;")
+    cursor1.execute("use usuarios;")
+    cursor1.execute("create table user(id int primary key auto_increment, nombre varchar(20), apellido varchar(20), pueblo varchar(20), ciudad varchar(20), teléfono varchar(9), fecha_nacimiento date);")
+
+
+
+# Función que genera una lista de números aleatorios entre dos números
 
 def generadorTelefonos(cantidad):
     listaResultado = []  
     for i in range(cantidad):
         listaResultado.append(random.randint(600000000, 699999999)) 
-        # generamos tantos números aleatorios para almacenarlos en la lista de resultado, como nos han indicado en en la llamada a la fincion
+        
     
     return listaResultado
 

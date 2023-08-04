@@ -26,11 +26,12 @@ def main():
             funciones.crearXslx(funciones.comprobarInt())
 
         elif seleccion == "2":
-            print('\n opción por implementar \n ')
+            contr = input('Escriba la contraseña de su usuario root en mysql:  ')
+            funciones.crearBdyTabla(contr)
             
         elif seleccion == "3":
-            password = input('Escriba la contraseña de su usuario root en mysql:  ')
-            funciones.copiarDatosAMysql(password)
+            contr = input('Escriba la contraseña de su usuario root en mysql:  ')
+            funciones.copiarDatosAMysql(contr)
         else:
             print("Opción inválida. Por favor, elija una opción válida (0-3).")
 
