@@ -13,3 +13,5 @@ PUEBLO = ["Lucena", "Cabra", "Puente Genil", "Baena", "Monturque", "Moriles"]
 
 CIUDAD = ["Córdoba"]
 
+RUTA_ARCHIVO = "./datos.xlsx"
+

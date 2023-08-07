@@ -18,7 +18,7 @@ def copiarDatosAMysql(pas):
     conexion = mysql.connector.connect(host="localhost", user="root", passwd=pasStr, database='usuarios')
     cursor1 = conexion.cursor()
 
-    dfArchivo = pd.read_excel('./datos.xlsx')
+    dfArchivo = pd.read_excel(constantes.RUTA_ARCHIVO)
 
     columnas_mysql = ', '.join(dfArchivo.columns)
 
@@ -53,12 +53,10 @@ def crearXslx(cantidad):
         #convertimos el diccionario a DataFrame con pandas 
         df = pd.DataFrame(datos)
 
-        # Especificamos la ruta donde vamos a crear el archivo y el nombre del archivo
-        ruta_archivo = './datos.xlsx'
 
         # Escribimos el DataFrame en el archivo de Excel
         # El parámetro index sirve para crear y almacenar un indice en el arcivo exel en caso de necesitarlo
-        df.to_excel(ruta_archivo, index=False)
+        df.to_excel(constantes.RUTA_ARCHIVO, index=False)
         print('\n Archivo creado correctamente \n')
     except ValueError:
         print('Ha ocurrido un error y el archivo no ha sido creado')
